@@ -1,0 +1,35 @@
+$background-color: #ff6f00;
+$text-color: #fff;
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: $background-color;
+    color: $text-color;
+  
+    h1 {
+      font-size: 2rem;
+      margin: 0;
+      vertical-align: middle;
+    }
+  
+    span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      color: #000;
+      height: 18px;
+      font-size: 14px;
+      font-weight: bold;
+      margin: 0 0 0 3px;
+      padding: 3px 7px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      vertical-align: middle;
+    }
+  }
+  
+  
+  

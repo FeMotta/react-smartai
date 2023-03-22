@@ -1,0 +1,8 @@
+$background-color: #ff9800;
+
+.App {
+  background-color: $background-color;
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
