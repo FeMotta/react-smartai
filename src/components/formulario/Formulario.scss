@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
+
+$font-roboto: 'Roboto', sans-serif;
+$font-montserrat: 'Montserrat', sans-serif;
+$primary-color: #333;
+
+.form-container {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.edu-form {
+  display: flex;
+  padding: 0 2rem 2rem 2rem;
+  align-items: center;
+  border-radius: 0.5rem;
+  flex-direction: column;
+  background-color: #fff;
+  border: 2px solid $primary-color;
+}
+
+.form-title {
+  font-size: 2rem;
+  text-align: center;
+  width: 25vw;
+  min-width: 300px;
+  margin-bottom: 2rem;
+  color: $primary-color;
+  font-family: $font-roboto;
+}
+
+
+
+
+
