@@ -57,6 +57,13 @@ $primary-color: #333;
   }
 }
 
+[data-page="home"] {
+  .form-title {
+    width: 25vw;
+    min-width: 300px;
+  }
+}
+
 @media (max-width: 768px) {
   [data-page="question-page"] {
     .edu-form {

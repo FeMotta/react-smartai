@@ -65,7 +65,7 @@ const QuestionPage = () => {
                     onChange={handleChange}
                 />
                 <div className="button-group">
-                    <Botao >
+                    <Botao onClick={backHome}>
                         Voltar para Home
                     </Botao>
                     <Botao onClick={handleSubmit}>

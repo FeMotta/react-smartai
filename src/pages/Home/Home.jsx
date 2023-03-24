@@ -27,7 +27,7 @@ const Home = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container" data-page="home">
       <form className="edu-form" onSubmit={handleSubmit}>
         <h2 className="form-title">SmartAI</h2>
         <Seletor
