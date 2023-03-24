@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./Home.scss";
+
 import Botao from '../../components/Botao/Botao';
 import Seletor from '../../components/Seletor/Seletor';
+import "./Home.scss";
 
 const Home = () => {
   const [materia, setMateria] = useState('matematica');
@@ -17,11 +18,11 @@ const Home = () => {
     setNivel(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Materia selecionada:', materia);
-    console.log('Nivel selecionado:', nivel);
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
+    localStorage.setItem('materia', materia);
+    localStorage.setItem('nivel', nivel);
     navigate('/question-page');
   };
 
