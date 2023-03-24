@@ -1,13 +1,15 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.scss';
-import Formulario from './components/formulario/Formulario'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './assets/styles/App.scss'
+import Home from './pages/Home/Home'
+import QuestionPage from './pages/QuestionPage/QuestionPage';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes> 
-          <Route path="/" element={<Formulario/>} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/question-page" element={<QuestionPage/>} />
         </Routes>
       </Router>
     </div>
