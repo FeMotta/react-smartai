@@ -1,0 +1,20 @@
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  
+    .form-button {
+      flex-grow: 1;
+      margin: 0 10px; 
+    }
+  
+    .form-button:first-child {
+      margin-left: 0; 
+    }
+  
+    .form-button:last-child {
+      margin-right: 0;
+    }
+}
+  
