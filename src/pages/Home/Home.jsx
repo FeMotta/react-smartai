@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 import Botao from '../../components/Botao/Botao';
 import Seletor from '../../components/Seletor/Seletor';
-import "./Home.scss";
 
 const Home = () => {
   const [materia, setMateria] = useState('matematica');
@@ -27,9 +26,9 @@ const Home = () => {
   };
 
   return (
-    <div className="form-container" data-page="home">
-      <form className="edu-form" onSubmit={handleSubmit}>
-        <h2 className="form-title">SmartAI</h2>
+    <div className="flex flex-col items-center justify-center h-screen" data-page="home">
+      <form className="flex flex-col items-center p-8 md:p-8 mx-auto max-w-screen-md bg-white rounded-md border-2 border-primary lg:min-w-300" onSubmit={handleSubmit}>
+        <h2 className="text-4.5xl text-center mb-1.3rem w-25vw min-w-300 text-primary font-montserrat">SmartAI</h2>
         <Seletor
           id="materia-select"
           value={materia}
@@ -54,7 +53,12 @@ const Home = () => {
           ]}
           onChange={handleNivelChange}
         />
-        <Botao onClick={handleSubmit}>Confirmar</Botao>
+        <Botao 
+          onClick={handleSubmit}
+          buttonClassName="w-full"
+        >
+          Confirmar
+        </Botao>
       </form>
     </div>
   );

@@ -1,12 +1,11 @@
 import React from 'react';
-import './Spinner.scss';
 
 const Spinner = () => {
     return (
-        <div className="spinner">
-            <div className="bounce1"></div>
-            <div className="bounce2"></div>
-            <div className="bounce3"></div>
+        <div className="flex justify-center items-center h-full w-full pb-6">
+            <div className="w-4 h-4 mx-1 rounded-full bg-main animate-bounce duration-1400 ease-in-out"></div>
+            <div className="w-4 h-4 mx-1 rounded-full bg-main animate-bounce duration-1400 ease-in-out delay-320"></div>
+            <div className="w-4 h-4 mx-1 rounded-full bg-main animate-bounce duration-1400 ease-in-out delay-160"></div>
         </div>
     );
 };
