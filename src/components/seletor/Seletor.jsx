@@ -8,7 +8,24 @@ function Seletor(props) {
       <div className="relative">
         <select
           id={id}
-          className="h-[50px] py-2 pl-2 pr-8 cursor-pointer appearance-none font-semibold text-secondary text-lg rounded border-2 border-ccc bg-transparent transition-border-color duration-300 ease-in focus:border-primary font-montserrat w-full"
+          className="
+            h-[50px] 
+            py-2 pl-2 pr-8 
+            cursor-pointer 
+            appearance-none 
+            font-semibold 
+            text-secondary 
+            text-lg 
+            rounded 
+            border-2 
+            border-ccc 
+            bg-transparent 
+            transition-border-color 
+            duration-300 
+            ease-in 
+            focus:border-primary 
+            font-montserrat 
+            w-full"
           value={value}
           onChange={onChange}
         >
@@ -16,8 +33,17 @@ function Seletor(props) {
             <option 
               key={option.value} 
               value={option.value}
-              className="text-base py-2 transition-bg duration-300 ease-in hover:bg-hover-option checked:bg-checked-option checked:text-primary"
-              >{option.label}
+              className="
+                text-base 
+                py-2 
+                transition-bg 
+                duration-300 
+                ease-in 
+                hover:bg-hover-option 
+                checked:bg-checked-option 
+                checked:text-primary"
+              >
+              {option.label}
             </option>
           ))}
         </select>
