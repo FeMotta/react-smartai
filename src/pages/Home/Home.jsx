@@ -5,6 +5,7 @@ import Botao from '../../components/Botao/Botao';
 import Formulario from '../../components/Formulario/Formulario';
 import Container from '../../components/Container/Container';
 import Seletor from '../../components/Seletor/Seletor';
+import Heading from '../../components/Heading/Heading';
 
 const Home = () => {
   const [materia, setMateria] = useState('matematica');
@@ -30,7 +31,7 @@ const Home = () => {
   return (
     <Container>
       <Formulario onSubmit={handleSubmit}>
-        <h2 className="text-4.5xl text-center mb-1.3rem w-25vw min-w-300 text-primary font-montserrat">SmartAI</h2>
+        <Heading headingClassName="w-25vw">SmartAI</Heading>
         <Seletor
           id="materia-select"
           value={materia}
