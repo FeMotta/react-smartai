@@ -6,6 +6,7 @@ import Botao from '../../components/Botao/Botao';
 import Input from '../../components/Input/Input';
 import Spinner from '../../components/Spinner/Spinner';
 import Formulario from '../../components/Formulario/Formulario';
+import Container from '../../components/Container/Container';
 
 const QuestionPage = () => {
 
@@ -67,7 +68,7 @@ const QuestionPage = () => {
     }, []);
   
     return (
-        <div className="flex flex-col items-center justify-center h-screen">
+        <Container>
             <Formulario formClassName="lg:min-w-600 p-5" onSubmit={handleSubmit}>
                 {loading ? (
                     <Spinner />
@@ -99,7 +100,7 @@ const QuestionPage = () => {
                     </Botao>
                 </div>
             </Formulario>
-        </div>
+        </Container>
     );
 };
   
