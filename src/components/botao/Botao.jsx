@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Botao(props) {
-  const { children, onClick, buttonClassName } = props;
+  const { children, onClick, buttonClassName, disabled } = props;
   return (
     <button
       className={`
@@ -14,7 +14,7 @@ function Botao(props) {
         py-3 px-8
         rounded 
         font-montserrat 
-        bg-main 
+        bg-secondary 
         shadow-form-button 
         transition-all 
         duration-300 ease-in 
@@ -24,9 +24,11 @@ function Botao(props) {
         focus:outline-none 
         active:bg-active 
         active:shadow-none 
-        active:translate-y-1 
+        active:translate-y-1
+        ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
         ${buttonClassName}`}
-      onClick={onClick}
+      onClick={disabled ? null : onClick}
+      disabled={disabled}
     >
       {children}
     </button>
