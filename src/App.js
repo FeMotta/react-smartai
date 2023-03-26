@@ -5,7 +5,7 @@ import QuestionPage from './pages/QuestionPage/QuestionPage';
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-main h-screen w-screen text-white text-lg">
       <Router>
         <Routes> 
           <Route path="/" element={<Home/>} />
