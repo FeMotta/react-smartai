@@ -9,12 +9,13 @@ const formSelectBackgroundImage = `url("data:image/svg+xml,%3Csvg xmlns='http://
 
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       backgroundColor: {
+        'main': '#381272',
         'primary': '#fff',
-        'main': '#333',
+        'secondary': '#333',
         'hover': '#1a1a1a',
         'active': '#0d0d0d',
         'hover-option': '#eee',
