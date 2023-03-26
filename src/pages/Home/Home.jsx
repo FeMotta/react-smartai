@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom';
 
 import Botao from '../../components/Botao/Botao';
 import Formulario from '../../components/Formulario/Formulario';
+import Container from '../../components/Container/Container';
 import Seletor from '../../components/Seletor/Seletor';
+import Heading from '../../components/Heading/Heading';
 
 const Home = () => {
   const [materia, setMateria] = useState('matematica');
@@ -27,41 +29,41 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen" data-page="home">
-        <Formulario onSubmit={handleSubmit}>
-          <h2 className="text-4.5xl text-center mb-1.3rem w-25vw min-w-300 text-primary font-montserrat">SmartAI</h2>
-          <Seletor
-            id="materia-select"
-            value={materia}
-            options={[
-              { label: 'Matemática', value: 'matematica' },
-              { label: 'Português', value: 'portugues' },
-              { label: 'História', value: 'historia' },
-              { label: 'Geografia', value: 'geografia' },
-              { label: 'Biologia', value: 'biologia' },
-              { label: 'Física', value: 'fisica' },
-              { label: 'Química', value: 'quimica' },
-            ]}
-            onChange={handleMateriaChange}
-          />
-          <Seletor
-            id="nivel-select"
-            value={nivel}
-            options={[
-              { label: 'Básico', value: 'basico' },
-              { label: 'Intermediário', value: 'intermediario' },
-              { label: 'Avançado', value: 'avancado' },
-            ]}
-            onChange={handleNivelChange}
-          />
-          <Botao 
-            onClick={handleSubmit}
-            buttonClassName="w-full"
-          >
-            Confirmar
-          </Botao>
+    <Container>
+      <Formulario onSubmit={handleSubmit}>
+        <Heading headingClassName="w-25vw">SmartAI</Heading>
+        <Seletor
+          id="materia-select"
+          value={materia}
+          options={[
+            { label: 'Matemática', value: 'matematica' },
+            { label: 'Português', value: 'portugues' },
+            { label: 'História', value: 'historia' },
+            { label: 'Geografia', value: 'geografia' },
+            { label: 'Biologia', value: 'biologia' },
+            { label: 'Física', value: 'fisica' },
+            { label: 'Química', value: 'quimica' },
+          ]}
+          onChange={handleMateriaChange}
+        />
+        <Seletor
+          id="nivel-select"
+          value={nivel}
+          options={[
+            { label: 'Básico', value: 'basico' },
+            { label: 'Intermediário', value: 'intermediario' },
+            { label: 'Avançado', value: 'avancado' },
+          ]}
+          onChange={handleNivelChange}
+        />
+        <Botao 
+          onClick={handleSubmit}
+          buttonClassName="w-full"
+        >
+          Confirmar
+        </Botao>
       </Formulario>
-    </div>
+    </Container>
   );
 };
 
