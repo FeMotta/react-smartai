@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Botao from '../../components/Botao/Botao';
-import Formulario from '../../components/Formulario/Formulario';
-import Container from '../../components/Container/Container';
-import Seletor from '../../components/Seletor/Seletor';
-import Heading from '../../components/Heading/Heading';
+import Botao from '../components/Botao';
+import Formulario from '../components/Formulario';
+import Container from '../components/Container';
+import Seletor from '../components/Seletor';
+import Heading from '../components/Heading';
 
 const Home = () => {
   const [materia, setMateria] = useState('matematica');

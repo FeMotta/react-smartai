@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { generateQuestions, checkAnswer } from '../../services/api'
+import { generateQuestions, checkAnswer } from '../services/api'
 
-import Botao from '../../components/Botao/Botao';
-import Input from '../../components/Input/Input';
-import Spinner from '../../components/Spinner/Spinner';
-import Formulario from '../../components/Formulario/Formulario';
-import Container from '../../components/Container/Container';
-import Heading from '../../components/Heading/Heading';
+import Botao from '../components/Botao';
+import Input from '../components/Input';
+import Spinner from '../components/Spinner';
+import Formulario from '../components/Formulario';
+import Container from '../components/Container';
+import Heading from '../components/Heading';
 
 const QuestionPage = () => {
 
