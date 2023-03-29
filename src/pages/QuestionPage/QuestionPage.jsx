@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { generateQuestions, checkAnswer } from '../../services/api'
 
@@ -16,6 +16,7 @@ const QuestionPage = () => {
     const [answer, setAnswer] = useState('');
     const [question, setQuestion] = useState('');
     const [loading, setLoading] = useState(false);
+    const [count, setCount] = useState(1);
 
     // Constants
 
@@ -52,6 +53,7 @@ const QuestionPage = () => {
                 setAnswer('');
                 generateQuestion().then( () => {
                     setLoading(false);
+                    setCount(count + 1); 
                 });
             })
         }
@@ -67,15 +69,25 @@ const QuestionPage = () => {
         generateQuestion();
         setLoading(true);
     }, []);
-  
+    
+    const Contador = () => {
+        return (
+            <div className="flex justify-center mb-4">
+            <p className="text-white-500 font-semibold">{count}/10</p>
+          </div>
+        );
+    };
+    
     return (
+        <>
+        <Contador count={count} formClassName="lg:min-w-600 p-5"/>
         <Container>
             <Formulario formClassName="lg:min-w-600 p-5" onSubmit={handleSubmit}>
                 {loading ? (
                     <Spinner />
-                ) : (
-                    <Heading headingClassName="w-full">{question}</Heading>
-                )}
+                    ) : (
+                        <Heading headingClassName="w-full">{question}</Heading>
+                        )}
                 <Input
                     id="answer-input"
                     placeholder="Digite sua resposta"
@@ -102,6 +114,7 @@ const QuestionPage = () => {
                 </div>
             </Formulario>
         </Container>
+        </>
     );
 };
   
