@@ -31,7 +31,6 @@ const QuestionPage = () => {
     try {
       const question = await generateQuestions(materia, nivel);
       setQuestion(question);
-      localStorage.setItem('question', question);
     } catch (error) {
       console.error(error);
     } finally {
@@ -50,6 +49,7 @@ const QuestionPage = () => {
       setLoading(true);
 
       await checkAnswer(question, answer).then( () => {
+        saveAnswer();
         setAnswer('');
           generateQuestion().then( () => {
             setLoading(false);
@@ -57,7 +57,23 @@ const QuestionPage = () => {
         });
       })
     }
+
+    if (count === 10) {
+      navigate('/answer-page');
+    }
   };
+
+  // Grava questao e resposta no local storage
+
+  const saveAnswer = (correctAnswer) => {
+    const object = {
+      key: count,
+      question: question,
+      answer: answer
+    };
+    
+    localStorage.setItem(`question-${count}`, JSON.stringify(object));
+  }
 
   const backHome = (event) => {
     event.preventDefault();
@@ -99,7 +115,7 @@ const QuestionPage = () => {
             disabled={answer === ''}
             onClick={handleSubmit}
           >
-            Próxima Questão
+            {count === 10 ? 'Finalizar' : 'Próxima Pergunta'}
           </Botao>
         </div>
       </Formulario>
