@@ -58,7 +58,7 @@ const QuestionPage = () => {
       })
     }
 
-    if (count === 10) {
+    if (count === 5) {
       navigate('/answer-page');
     }
   };
@@ -88,7 +88,7 @@ const QuestionPage = () => {
   return (
     <Container>
       <div className="flex justify-center mb-1">
-        <p className="text-white-500 font-semibold">{count}/10</p>
+        <p className="text-white-500 font-semibold italic font-roboto text-4xl">{count}/5</p>
       </div>
       <Formulario formClassName="lg:min-w-600 p-5" onSubmit={handleSubmit}>
         {loading ? (
@@ -114,7 +114,7 @@ const QuestionPage = () => {
             disabled={answer === ''}
             onClick={handleSubmit}
           >
-            {count === 10 ? 'Finalizar' : 'Próxima Pergunta'}
+            {count === 5 ? 'Finalizar' : 'Próxima Pergunta'}
           </Botao>
         </div>
       </Formulario>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-    baseURL: 'https://smart-ai-server.azurewebsites.net/',
+    baseURL: 'http://192.168.0.12:3001',
     headers: {
         'Content-Type': 'application/json',
     },
