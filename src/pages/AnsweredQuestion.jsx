@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
-import { checkAnswer } from '../services/api'
 
 import Container from "../components/Container";
 import Formulario from "../components/Formulario";
@@ -16,7 +15,7 @@ const AnswerQuestion = () => {
 
     const [questionObject, setAnswerObject] = useState({
         question: '',
-        answer: '',
+        userAnswer: '',
         correctAnswer: '',
     });
     const [loading, setLoading] = useState(true);
@@ -41,29 +40,10 @@ const AnswerQuestion = () => {
             const localStorageItens = localStorage.getItem(`question-${questionNumber}`);
             const answerObject = JSON.parse(localStorageItens);
 
-            if (!answerObject.correctAnswer) {
-                getCorrectAnswer(answerObject.question, answerObject.answer);
-            } else {
-                setAnswerObject(answerObject);
-                setLoading(false);
-            }
+            setAnswerObject(answerObject);
+            setLoading(false);
         } catch (error) {
             console.error('Erro ao obter a resposta:', error);
-            setLoading(false);
-        }
-    }
-
-    const getCorrectAnswer = async (question, answer) => {
-        try {
-            const response = await checkAnswer(question, answer);
-            setAnswerObject({
-                question: question,
-                answer: answer,
-                correctAnswer: response,
-            });
-        } catch (error) {
-            console.error('Erro ao verificar a resposta:', error);
-        } finally {
             setLoading(false);
         }
     }
@@ -82,15 +62,15 @@ const AnswerQuestion = () => {
                 ) : (
                 <div>
                     <Heading headingClassName="w-full lg:min-w-500">
-                    Questão: {questionObject.question}
+                        Questão: {questionObject.question}
                     </Heading>
                     <Input
                     id="answer-input"
-                    value={questionObject.answer}
+                    value={questionObject.userAnswer}
                     readOnly={true}
                     />
                     <Heading headingClassName="w-full lg:min-w-500">
-                    SmartAI: {questionObject.correctAnswer}
+                        SmartAI: {questionObject.correctAnswer}
                     </Heading>
                 </div>
                 )}

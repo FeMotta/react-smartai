@@ -15,7 +15,7 @@ const QuestionPage = () => {
 
   const [answer, setAnswer] = useState('');
   const [question, setQuestion] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [count, setCount] = useState(1);
 
   // Constants
@@ -48,8 +48,8 @@ const QuestionPage = () => {
     if (answer !== '') {
       setLoading(true);
 
-      await checkAnswer(question, answer).then( () => {
-        saveAnswer();
+      await checkAnswer(question, answer).then( (response) => {
+        saveAnswer(response);
         setAnswer('');
           generateQuestion().then( () => {
             setLoading(false);
@@ -63,16 +63,15 @@ const QuestionPage = () => {
     }
   };
 
-  // Grava questao e resposta no local storage
-
   const saveAnswer = (correctAnswer) => {
-    const object = {
-      key: count,
+    const questionNumber = count;
+    const questionObject = {
       question: question,
-      answer: answer
+      userAnswer: answer,
+      correctAnswer: correctAnswer,
     };
-    
-    localStorage.setItem(`question-${count}`, JSON.stringify(object));
+    const localStorageItens = JSON.stringify(questionObject);
+    localStorage.setItem(`question-${questionNumber}`, localStorageItens);
   }
 
   const backHome = (event) => {
@@ -82,8 +81,8 @@ const QuestionPage = () => {
   };
 
   useEffect(() => {
-    generateQuestion();
     setLoading(true);
+    generateQuestion();
   }, []);
   
   return (
