@@ -31,10 +31,10 @@ const QuestionPage = () => {
     try {
       const question = await generateQuestions(materia, nivel);
       setQuestion(question);
+      setLoading(false);
     } catch (error) {
       console.error(error);
-    } finally {
-      setLoading(false);
+      setLoading(true);
     }
   };
 
@@ -58,7 +58,8 @@ const QuestionPage = () => {
       })
     }
 
-    if (count === 5) {
+    if (count === 4) {
+
       navigate('/answer-page');
     }
   };
@@ -87,35 +88,51 @@ const QuestionPage = () => {
   
   return (
     <Container>
+      {/* Contador de Questão */}
       <div className="flex justify-center mb-1">
-        <p className="text-white-500 font-semibold italic font-roboto text-4xl">{count}/5</p>
+        <p className="text-white-500 font-semibold italic font-roboto text-4xl">{count}/4</p>
       </div>
+
       <Formulario formClassName="lg:min-w-600 p-5" onSubmit={handleSubmit}>
+        {/* Questão ou Loading Spinner */}
         {loading ? (
           <Spinner />
         ) : (
           <Heading headingClassName="w-full">{question}</Heading>
         )}
-        <Input
-          id="answer-input"
-          placeholder="Digite sua resposta"
-          value={answer}
-          onChange={handleChange}
-          inputClassName={`border-2 rounded-md px-4 py-2 ${answer === '' ? 'border-red-500' : 'border-primary'}`} />
+
+        {/* Input de Resposta */}
+        {!loading && (
+          <Input
+            id="answer-input"
+            placeholder="Digite sua resposta"
+            value={answer}
+            onChange={handleChange}
+            inputClassName={`border-2 rounded-md px-4 py-2 ${
+              answer === "" ? "border-red-500" : "border-primary"
+            }`} 
+          />
+        )}
+
+        {/* Botões de Navegação */}
         <div className="flex justify-between items-center w-full">
-          <Botao
-            buttonClassName="form-button flex-grow mx-2 first:ml-0 last:mr-0"
-            onClick={backHome}
-          >
-            Voltar para Home
-          </Botao>
-          <Botao
-            buttonClassName="form-button flex-grow mx-2 first:ml-0 last:mr-0"
-            disabled={answer === ''}
-            onClick={handleSubmit}
-          >
-            {count === 5 ? 'Finalizar' : 'Próxima Pergunta'}
-          </Botao>
+          {/* Botão Home */}
+          {count !== 4 && (
+            <Botao buttonClassName="form-button flex-grow mx-2 first:ml-0 last:mr-0" onClick={backHome}>
+              Voltar para Home
+            </Botao>
+          )}
+
+          {/* Botão Próxima Pergunta */}
+          {!loading && (
+            <Botao
+              buttonClassName="form-button flex-grow mx-2 first:ml-0 last:mr-0"
+              disabled={answer === ''}
+              onClick={handleSubmit}
+            >
+              {count === 4 ? "Finalizar" : "Próxima Pergunta"}
+            </Botao>
+          )}
         </div>
       </Formulario>
     </Container>

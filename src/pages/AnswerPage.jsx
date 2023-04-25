@@ -1,24 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from 'react-router-dom';
 
 import Container from "../components/Container";
 import Formulario from "../components/Formulario";
 import QuestionNumber from "../components/QuestionNumber";
 import Botao from "../components/Botao";
-import ProgressBar from "../components/ProgressBar";
 
 const AnswerPage = () => {
 
-    // State
-
-    const [progress, setProgress] = useState(0);
-
-    // Variaveis 
+    // Constants 
 
     const navigate = useNavigate();
-    const questionNumbers = Array.from({ length: 10 }, (_, i) => i + 1);
+    const questionNumbers = Array.from({ length: 4 }, (_, i) => i + 1);
 
-    // Funções
+    // Functions
 
     const goAnswerdQuestion = (event) => {
         event.preventDefault();
@@ -37,8 +32,9 @@ const AnswerPage = () => {
     return (
         <Container>
             <Formulario className="lg:min-w-600 p-5">
-                <ProgressBar progress={progress} />
-                <div className="grid grid-cols-2 sm:grid-cols-5">
+
+                {/* Card de Questão */}
+                <div className="grid grid-cols-2 sm:grid-cols-4">
                     {questionNumbers.map((number, index) => (
                         <QuestionNumber 
                         key={index}
@@ -47,6 +43,8 @@ const AnswerPage = () => {
                         </QuestionNumber>
                     ))}
                 </div>
+                
+                {/* Botão de Voltar para Home */}
                 <Botao buttonClassName="self-center w-80 mt-3"
                 onClick={goBackHome}>
                     Voltar para Home

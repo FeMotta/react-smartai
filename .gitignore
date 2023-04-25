@@ -22,3 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .env
+.gcloudignore
+app.yaml
+client_secret_229901261019-s41h6d2sqhm2ukfrs48h1cj292debe4l.apps.googleusercontent.com.json
