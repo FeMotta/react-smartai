@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { generateQuestions, checkAnswer } from '../services/api'
+import { generateQuestions, checkAnswer } from '../services/api';
+import Cookies from 'js-cookie';
 
 import Botao from '../components/Botao';
 import Input from '../components/Input';
@@ -21,6 +23,7 @@ const QuestionPage = () => {
   // Constants
 
   const navigate = useNavigate();
+  const apikey = Cookies.get('api_key');
   
   // Functions
   
@@ -29,7 +32,7 @@ const QuestionPage = () => {
     const nivel = localStorage.getItem('nivel');
     
     try {
-      const question = await generateQuestions(materia, nivel);
+      const question = await generateQuestions(materia, nivel, apikey);
       setQuestion(question);
       setLoading(false);
     } catch (error) {
@@ -48,7 +51,7 @@ const QuestionPage = () => {
     if (answer !== '') {
       setLoading(true);
 
-      await checkAnswer(question, answer).then( (response) => {
+      await checkAnswer(question, answer, apikey).then( (response) => {
         saveAnswer(response);
         setAnswer('');
           generateQuestion().then( () => {
